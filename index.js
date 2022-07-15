@@ -1,4 +1,10 @@
-var readlineSync = require('readline-sync')
+import chalk from 'chalk';
+import readlineSync from 'readline-sync'
+// var readlineSync = require('readline-sync')
+
+var userName = readlineSync.question('May I Know Your Name? ')
+console.log(chalk.blue("Welcome " + userName ))
+console.log(chalk.red("Let's see how well do you know JavaScript ? \n"))
 
 var score = 0
 
@@ -12,7 +18,7 @@ var highScores = [
     score:7,
   },
 {
-    name:"Abhijeet Gupta",
+    name:"Abhijeet ",
     score:3,
   },
 ]
@@ -68,11 +74,11 @@ function play(question, answer) {
   var userAnswer = readlineSync.question(question)
 
   if(userAnswer.toLowerCase() == answer.toLowerCase()) {
-    console.log("Yes You are right")
+     console.log(chalk.green("Yes You are right"));
     score= score + 1
    
   } else{
-    console.log("Oops You are wrong")
+    console.log(chalk.red("Oops You are wrong"));
     score = score - 1;
     
   }
@@ -87,13 +93,13 @@ for(var i =0 ; i<questionsList.length ; i++){
   play(currentQuestion,currentAnswer)
 }
 
-console.log("You Scored : " + score) 
+console.log(chalk.green("You Scored : " + score) )
 
 for(var i =0 ; i<highScores.length ; i++) {
   var currentHighScoreName = highScores[i].name;
   var currentHighScore = highScores[i].score;
 
   if(currentHighScore < score) {
-    console.log("Congratulations you have beaten " + currentHighScoreName +  "  Send me a screenshot to update in my records.")
+    console.log(chalk.yellow("Congratulations you have beaten " + currentHighScoreName +  "  Send me a screenshot to update in my records."))
   }
 }
