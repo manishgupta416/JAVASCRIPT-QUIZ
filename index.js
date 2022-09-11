@@ -18,7 +18,7 @@ var highScores = [
     score:7,
   },
 {
-    name:"Abhijeet ",
+    name:"Abhijeet",
     score:3,
   },
 ]
@@ -79,7 +79,6 @@ function play(question, answer) {
    
   } else{
     console.log(chalk.red("Oops You are wrong"));
-    score = score - 1;
     
   }
   console.log("Current Score : " + score)
